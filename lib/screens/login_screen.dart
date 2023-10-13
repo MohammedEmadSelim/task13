@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:task/style/colors.dart';
+
+import 'rigester_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: (Colors.white),
-        appBar: AppBar(
-          backgroundColor:Colors.white,
-          // shadowColor: Colors.white,
-          elevation: 0,
-        ),
-        body: SafeArea(
-            child: Container(
+    return Scaffold(
+      backgroundColor: (Colors.white),
+      appBar: AppBar(
+        backgroundColor:whiteBlue,
+        // shadowColor: Colors.white,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Container(
           color: Colors.white,
           width: MediaQuery.of(context).size.width,
           child: Padding(
@@ -88,6 +90,7 @@ class LoginScreen extends StatelessWidget {
                   height: 10,
                 ),
                 ElevatedButton(
+                  style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(whiteBlue)),
                   onPressed: () {},
                   child: Container(
                     width: MediaQuery.of(context).size.width,
@@ -175,7 +178,7 @@ class LoginScreen extends StatelessWidget {
                             fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Row(
@@ -183,18 +186,26 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     const Text(
                       'Don’t have a account?',
-                      style: TextStyle(color: Color(0xff9098B1),
-                      fontSize: 15),
+                      style: TextStyle(color: Color(0xff9098B1), fontSize: 15),
                     ),
-                    TextButton(onPressed: (){}, child: const Text('Register',
-                    style: TextStyle(color: Color(0xff40BFFF),
-                    fontSize: 15),))
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                        ));
+                      },
+                      child: const Text(
+                        'Register',
+                        style:
+                            TextStyle(color: Color(0xff40BFFF), fontSize: 12,fontWeight: FontWeight.w700),
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
-        )),
+        ),
       ),
     );
   }

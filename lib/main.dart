@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:task/screens/splash.dart';
 
-import 'login_screen.dart';
+import 'screens/home.dart';
+import 'screens/login_screen.dart';
 
 void main() {
-  runApp(const LoginScreen());
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: HomeScreen(),
+    );
+  }
 }
 
 class FirstScreen extends StatelessWidget {
@@ -11,8 +24,7 @@ class FirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: const Color(0xffD6CC99),
         appBar: AppBar(
           backgroundColor: const Color(0xff445D48),
@@ -106,7 +118,7 @@ class FirstScreen extends StatelessWidget {
                       ),
                       Row(
                         //
-                         children: [
+                        children: [
                           Container(
                             height: 80,
                             width: 20,
@@ -211,7 +223,7 @@ class FirstScreen extends StatelessWidget {
                         ],
                       ),
                       Row(
-                         children: [
+                        children: [
                           Container(
                             height: 80,
                             width: 20,
@@ -233,7 +245,7 @@ class FirstScreen extends StatelessWidget {
                             color: Color(0xffafca34),
                           ),
                         ],
-                      )                  
+                      )
                     ],
                   ),
                 ),
@@ -347,7 +359,7 @@ class FirstScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
+    
     );
   }
 }
